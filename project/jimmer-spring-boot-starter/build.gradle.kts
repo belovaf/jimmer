@@ -9,7 +9,7 @@ dependencies {
     api(projects.jimmerClient)
     api(libs.spring.boot.starter.jdbc)
     api(libs.spring.data.commons)
-    api(libs.jackson.module.kotlin)
+    api(libs.jackson2.module.kotlin)
 
     compileOnly(libs.spring.boot.starter.web)
     compileOnly(libs.spring.data.redis)

@@ -11,7 +11,7 @@ dependencies {
     implementation(libs.slf4j.api)
     implementation(libs.kotlin.stdlib)
     implementation(libs.jetbrains.annotations)
-    compileOnly(libs.jackson.databind)
+    compileOnly(libs.jackson2.databind)
     compileOnly(libs.jackson3.databind)
     compileOnly(libs.h2)
     compileOnly(libs.postgresql)
