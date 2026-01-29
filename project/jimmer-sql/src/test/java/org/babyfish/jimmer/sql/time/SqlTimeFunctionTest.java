@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 public class SqlTimeFunctionTest extends AbstractQueryTest {
 

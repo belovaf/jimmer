@@ -4,13 +4,11 @@ import org.babyfish.jimmer.jackson.codec.*;
 import tools.jackson.databind.JavaType;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
-import tools.jackson.module.kotlin.KotlinFeature;
-import tools.jackson.module.kotlin.KotlinModule;
 
 import java.util.List;
 import java.util.Map;
 
-import static org.babyfish.jimmer.jackson.ClassUtils.classExists;
+import static org.babyfish.jimmer.jackson.v3.ModulesRegistrar3.registerWellKnownModules;
 import static tools.jackson.databind.DeserializationFeature.FAIL_ON_TRAILING_TOKENS;
 import static tools.jackson.databind.MapperFeature.SORT_PROPERTIES_ALPHABETICALLY;
 
@@ -33,11 +31,9 @@ public class JsonCodecImpl3 implements JsonCodec<JavaType> {
         JsonMapper.Builder builder = JsonMapper.builder()
                 .disable(FAIL_ON_TRAILING_TOKENS)
                 .disable(SORT_PROPERTIES_ALPHABETICALLY);
-        if (classExists("tools.jackson.module.kotlin.KotlinModule")) {
-            builder.addModule(new KotlinModule.Builder()
-                    .enable(KotlinFeature.KotlinPropertyNameAsImplicitName) // for correct Tuples serialization
-                    .build());
-        }
+
+        registerWellKnownModules(builder);
+
         return builder.build();
     }
 

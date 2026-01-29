@@ -56,7 +56,7 @@ public class ServletControllerConfiguration {
     ) {
         return new MicroServiceExporterController(
                 jSqlClient != null ? jSqlClient : kSqlClient.getJavaClient(),
-                jsonCodecProvider.getIfAvailable(JsonCodec.Detector::jsonCodec)
+                jsonCodecProvider.getIfAvailable(JsonCodec::jsonCodec)
         );
     }
 }

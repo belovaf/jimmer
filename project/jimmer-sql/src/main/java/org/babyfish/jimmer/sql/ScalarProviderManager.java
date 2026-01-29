@@ -18,6 +18,7 @@ import java.lang.reflect.*;
 import java.util.*;
 import java.util.function.Function;
 
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 import static org.babyfish.jimmer.sql.ScalarProviderUtils.getSqlType;
 
 class ScalarProviderManager implements ScalarTypeStrategy {
@@ -121,7 +122,7 @@ class ScalarProviderManager implements ScalarTypeStrategy {
             return defaultJsonProviderCreator.apply(prop);
         }
         JsonCodec<?> serializedPropJsonCodec = serializedPropJsonCodec(prop);
-        JsonCodec<?> jsonCodec = serializedPropJsonCodec != null ? serializedPropJsonCodec : JsonCodec.Detector.jsonCodec();
+        JsonCodec<?> jsonCodec = serializedPropJsonCodec != null ? serializedPropJsonCodec : jsonCodec();
         return createJsonProvider(prop.getReturnClass(), tf -> jacksonType(tf, prop.getGenericType()), jsonCodec);
     }
 
@@ -169,7 +170,7 @@ class ScalarProviderManager implements ScalarTypeStrategy {
 
         if (serialized != null) {
             JsonCodec<?> serializedTypeJsonCodec = serializedTypeJsonCodec(type);
-            JsonCodec<?> jsonCodec = serializedTypeJsonCodec != null ? serializedTypeJsonCodec : JsonCodec.Detector.jsonCodec();
+            JsonCodec<?> jsonCodec = serializedTypeJsonCodec != null ? serializedTypeJsonCodec : jsonCodec();
             return createJsonProvider(type, tf -> tf.constructType(type), jsonCodec);
         }
 

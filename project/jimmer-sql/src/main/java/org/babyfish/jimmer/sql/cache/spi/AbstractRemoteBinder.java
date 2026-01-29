@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 abstract class AbstractRemoteBinder<K, V> extends AbstractTrackingProducerBinder<K> implements LockableBinder<K, V> {
 

@@ -2,7 +2,7 @@ export org.babyfish.jimmer.sql.kt.model.hr.Department
     -> package org.babyfish.jimmer.sql.kt.model.hr.dto
 
 import testpkg.annotations.{ConsiderAs, Type, Serializable}
-import org.babyfish.jimmer.sql.model.hr.{
+import org.babyfish.jimmer.sql.kt.model.hr.{
     MagicStringSerializer, MagicStringSerializer3, MagicStringDeserializer, MagicStringDeserializer3
 }
 import com.alibaba.excel.annotation.ExcelProperty

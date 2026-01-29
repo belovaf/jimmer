@@ -1,13 +1,23 @@
 package org.babyfish.jimmer.jackson.codec;
 
-import org.babyfish.jimmer.jackson.ClassUtils;
-import org.babyfish.jimmer.jackson.v2.JsonCodecImpl;
-import org.babyfish.jimmer.jackson.v3.JsonCodecImpl3;
-
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Facade to abstract jimmer from concrete jackson version.
+ * Allows to support jimmer 2 and jimmer 3 simultaneously.
+ *
+ * @param <JT> JavaType class from jackson
+ */
 public interface JsonCodec<JT> {
+    static JsonCodec<?> jsonCodec() {
+        return JsonCodecDetector.JSON_CODEC;
+    }
+
+    static JsonCodec<?> jsonCodecWithoutImmutableModule() {
+        return JsonCodecDetector.JSON_CODEC_WITHOUT_IMMUTABLE_MODULE;
+    }
+
     JsonCodec<JT> withCustomizations(JsonCodecCustomization... customizations);
 
     JsonConverter converter();
@@ -33,28 +43,4 @@ public interface JsonCodec<JT> {
     JsonWriter writerFor(Class<?> clazz);
 
     JsonWriter writerFor(TypeCreator<JT> typeCreator);
-
-    class Detector {
-        private static final JsonCodec<?> JSON_CODEC;
-        private static final JsonCodec<?> JSON_CODEC_WITHOUT_IMMUTABLE_MODULE;
-
-        public static JsonCodec<?> jsonCodec() {
-            return JSON_CODEC;
-        }
-
-        public static JsonCodec<?> jsonCodecWithoutImmutableModule() {
-            return JSON_CODEC_WITHOUT_IMMUTABLE_MODULE;
-        }
-
-        static {
-            if (ClassUtils.classExists("tools.jackson.databind.ObjectMapper")) {
-                JSON_CODEC_WITHOUT_IMMUTABLE_MODULE = new JsonCodecImpl3();
-            } else if (ClassUtils.classExists("com.fasterxml.jackson.databind.ObjectMapper")) {
-                JSON_CODEC_WITHOUT_IMMUTABLE_MODULE = new JsonCodecImpl();
-            } else {
-                throw new IllegalStateException("Jackson is required");
-            }
-            JSON_CODEC = JSON_CODEC_WITHOUT_IMMUTABLE_MODULE.withCustomizations(new ImmutableModuleCustomization());
-        }
-    }
 }

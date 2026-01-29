@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 public class OrganizationEvictTest extends AbstractQueryTest {
 
@@ -78,7 +78,8 @@ public class OrganizationEvictTest extends AbstractQueryTest {
                     }
                     return null;
                 },
-                ctx -> {}
+                ctx -> {
+                }
         );
         Assertions.assertEquals(
                 "[Organization.parent-9, Organization.childOrganizations-2, Organization.childOrganizations-3]",

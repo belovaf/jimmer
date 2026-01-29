@@ -8,7 +8,7 @@ import org.babyfish.jimmer.sql.model.dto.DynamicBookStoreInput;
 import org.babyfish.jimmer.sql.model.dto.FuzzyBookInput;
 import org.junit.jupiter.api.Test;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodecWithoutImmutableModule;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule;
 
 public class DynamicAndFuzzyInputTest extends Tests {
 

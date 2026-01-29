@@ -3,8 +3,6 @@ package org.babyfish.jimmer.jackson.v2;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.module.kotlin.KotlinModule;
 import org.babyfish.jimmer.jackson.codec.*;
 
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.Map;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS;
-import static org.babyfish.jimmer.jackson.ClassUtils.classExists;
+import static org.babyfish.jimmer.jackson.v2.ModulesRegistrar.registerWellKnownModules;
 
 public class JsonCodecImpl implements JsonCodec<JavaType> {
     private final JsonMapper mapper;
@@ -31,12 +29,11 @@ public class JsonCodecImpl implements JsonCodec<JavaType> {
 
     private static JsonMapper createDefaultMapper() {
         JsonMapper.Builder builder = JsonMapper.builder()
-                .addModule(new JavaTimeModule())
                 .disable(WRITE_DATES_AS_TIMESTAMPS)
                 .disable(FAIL_ON_UNKNOWN_PROPERTIES);
-        if (classExists("com.fasterxml.jackson.module.kotlin.KotlinModule")) {
-            builder.addModule(new KotlinModule.Builder().build());
-        }
+
+        registerWellKnownModules(builder);
+
         return builder.build();
     }
 

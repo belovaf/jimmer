@@ -38,7 +38,7 @@ class Context(
     val isBuddyIgnoreResourceGeneration: Boolean =
         environment.options["jimmer.buddy.ignoreResourceGeneration"]?.trim() == "true"
 
-    val jackson3 = jackson3(resolver, environment)
+    val jackson3 = detectIsJackson3(resolver, environment)
 
     val jacksonTypes: JacksonTypes =
         if (jackson3) {
@@ -147,13 +147,13 @@ class Context(
             Embeddable::class
         )
 
-        private fun jackson3(resolver: Resolver, environmnet: SymbolProcessorEnvironment): Boolean =
-            environmnet.options["jimmer.jackson3"].let {
-                if (it.isNullOrEmpty()) {
-                    false//resolver.getClassDeclarationByName("tools.jackson.annotation.JsonIgnore") != null
-                } else {
-                    "true" == it
-                }
+        private fun detectIsJackson3(resolver: Resolver, environment: SymbolProcessorEnvironment): Boolean {
+            val jackson3Text = environment.options["jimmer.jackson3"]
+            return if (jackson3Text.isNullOrEmpty()) {
+                resolver.getClassDeclarationByName("tools.jackson.databind.ObjectMapper") != null
+            } else {
+                "true" == jackson3Text
             }
+        }
     }
 }

@@ -9,7 +9,7 @@ import org.babyfish.jimmer.sql.model.embedded.dto.DynamicRectInput;
 import org.babyfish.jimmer.sql.runtime.DbLiteral;
 import org.junit.jupiter.api.Test;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodecWithoutImmutableModule;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule;
 
 public class EmbeddedMutationTest extends AbstractMutationTest {
 

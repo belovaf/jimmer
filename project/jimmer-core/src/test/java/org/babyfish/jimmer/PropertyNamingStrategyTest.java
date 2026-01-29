@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 import static org.babyfish.jimmer.support.PropertyNamingCustomization.PropertyNaming;
 
 public class PropertyNamingStrategyTest {

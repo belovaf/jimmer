@@ -7,7 +7,7 @@ import org.babyfish.jimmer.support.PropertyNamingCustomization;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 import static org.babyfish.jimmer.support.PropertyNamingCustomization.PropertyNaming.SNAKE_CASE;
 
 public class TreeNodeTest {

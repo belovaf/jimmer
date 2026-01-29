@@ -14,6 +14,8 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
+
 public class MetadataLiterals {
 
     private final static DateTimeFormatter ZONED_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[XXX][X]")
@@ -25,7 +27,7 @@ public class MetadataLiterals {
 
     private final static DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    private static final JsonCodec<?> JSON_CODEC = JsonCodec.Detector.jsonCodec();
+    private static final JsonCodec<?> JSON_CODEC = jsonCodec();
 
     private static final Map<Class<?>, Function<String, Object>> DEFAULT_VALUE_PARSER_MAP;
 

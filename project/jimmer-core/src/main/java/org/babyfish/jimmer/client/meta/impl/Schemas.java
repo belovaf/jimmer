@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Set;
 
 import static java.util.Collections.singletonMap;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 public class Schemas {
 
@@ -19,10 +20,10 @@ public class Schemas {
 
     private static final Object GROUPS = new Object();
 
-    private static final JsonCodec<?> READ_SERVICES_JSON_CODEC = JsonCodec.Detector.jsonCodec()
+    private static final JsonCodec<?> READ_SERVICES_JSON_CODEC = jsonCodec()
             .withCustomizations(new SharedAttributesCustomization(singletonMap(IGNORE_DEFINITIONS, true)));
 
-    private static final JsonWriter WRITER = JsonCodec.Detector.jsonCodec().writer().withDefaultPrettyPrinter();
+    private static final JsonWriter WRITER = jsonCodec().writer().withDefaultPrettyPrinter();
 
     private Schemas() {
     }
@@ -36,7 +37,7 @@ public class Schemas {
     }
 
     public static Schema readFrom(Reader reader, Set<String> groups) throws Exception {
-        return JsonCodec.Detector.jsonCodec()
+        return jsonCodec()
                 .withCustomizations(new SharedAttributesCustomization(singletonMap(GROUPS, groups)))
                 .readerFor(SchemaImpl.class)
                 .read(reader);

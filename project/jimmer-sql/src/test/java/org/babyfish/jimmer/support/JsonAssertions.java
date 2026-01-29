@@ -3,7 +3,7 @@ package org.babyfish.jimmer.support;
 import org.babyfish.jimmer.jackson.codec.JsonReader;
 import org.junit.jupiter.api.Assertions;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodecWithoutImmutableModule;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule;
 
 public class JsonAssertions {
     private static final JsonReader<?> READER = jsonCodecWithoutImmutableModule().treeReader();

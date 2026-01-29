@@ -1,6 +1,5 @@
 package org.babyfish.jimmer.sql.event.binlog.impl;
 
-import org.babyfish.jimmer.jackson.codec.JsonCodec;
 import org.babyfish.jimmer.jackson.codec.Node;
 import org.babyfish.jimmer.meta.EmbeddedLevel;
 import org.babyfish.jimmer.meta.ImmutableProp;
@@ -16,6 +15,7 @@ import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.List;
 
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 import static org.babyfish.jimmer.sql.ScalarProviderUtils.getSqlType;
 
 class ValueParser {
@@ -139,7 +139,7 @@ class ValueParser {
             return node.castTo(type);
         }
         try {
-            return node.convertTo(type, JsonCodec.Detector.jsonCodec().converter());
+            return node.convertTo(type, jsonCodec().converter());
         } catch (Exception ex) {
             throw new IllegalArgumentException("Cannot convert  \"" +
                     node +
@@ -158,7 +158,7 @@ class ValueParser {
             return node.castTo(type);
         }
         try {
-            return node.convertTo(type, JsonCodec.Detector.jsonCodec().converter());
+            return node.convertTo(type, jsonCodec().converter());
         } catch (Exception ex) {
             return ILLEGAL_VALUE;
         }

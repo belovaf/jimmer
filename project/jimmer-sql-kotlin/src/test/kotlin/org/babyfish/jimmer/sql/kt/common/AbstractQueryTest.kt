@@ -1,7 +1,7 @@
 package org.babyfish.jimmer.sql.kt.common
 
 import com.fasterxml.jackson.core.JsonProcessingException
-import org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec
+import org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec
 import org.babyfish.jimmer.sql.kt.ast.query.KTypedRootQuery
 import java.sql.Connection
 import java.util.function.Consumer

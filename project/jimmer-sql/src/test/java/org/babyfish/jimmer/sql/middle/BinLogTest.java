@@ -9,9 +9,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
+
 public class BinLogTest {
 
-    private static final JsonCodec<?> JSON_CODEC = JsonCodec.Detector.jsonCodec();
+    private static final JsonCodec<?> JSON_CODEC = jsonCodec();
 
     private JSqlClient sqlClient;
 

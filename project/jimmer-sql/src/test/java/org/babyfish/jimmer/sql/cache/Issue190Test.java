@@ -8,7 +8,9 @@ import org.babyfish.jimmer.sql.cache.chain.ChainCacheBuilder;
 import org.babyfish.jimmer.sql.cache.chain.SimpleBinder;
 import org.babyfish.jimmer.sql.common.AbstractQueryTest;
 import org.babyfish.jimmer.sql.common.Constants;
-import org.babyfish.jimmer.sql.model.*;
+import org.babyfish.jimmer.sql.model.AuthorFetcher;
+import org.babyfish.jimmer.sql.model.BookFetcher;
+import org.babyfish.jimmer.sql.model.BookProps;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.junit.jupiter.api.Assertions;
@@ -17,7 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 public class Issue190Test extends AbstractQueryTest {
 

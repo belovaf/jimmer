@@ -1,7 +1,7 @@
 package org.babyfish.jimmer.kt
 
 import org.babyfish.jimmer.jackson.ImmutableModuleRequiredException
-import org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodecWithoutImmutableModule
+import org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule
 import org.babyfish.jimmer.kt.model.Book
 import org.babyfish.jimmer.kt.model.by
 import kotlin.test.Test

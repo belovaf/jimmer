@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.Function;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 public class ValueSerializer<T> {
     private static final byte[] NULL_BYTES = "<null>".getBytes(StandardCharsets.UTF_8);

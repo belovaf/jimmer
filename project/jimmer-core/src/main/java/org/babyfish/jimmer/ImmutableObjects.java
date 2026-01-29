@@ -9,6 +9,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
+
 public class ImmutableObjects {
     private ImmutableObjects() {
     }
@@ -355,7 +357,7 @@ public class ImmutableObjects {
      */
     public static String toString(Object immutable) {
         try {
-            return JsonCodec.Detector.jsonCodec().writer().writeAsString(immutable);
+            return jsonCodec().writer().writeAsString(immutable);
         } catch (Exception e) {
             throw new IllegalArgumentException("Can't serialize object", e);
         }
@@ -369,7 +371,7 @@ public class ImmutableObjects {
      */
     public static <I> I fromString(Class<I> type, String json) {
         try {
-            return JsonCodec.Detector.jsonCodec().readerFor(type).read(json);
+            return jsonCodec().readerFor(type).read(json);
         } catch (Exception e) {
             throw new IllegalArgumentException("Can't deserialize object ", e);
         }
@@ -377,7 +379,7 @@ public class ImmutableObjects {
 
     public static <I> I fromString(Class<I> type, String json, @Nullable JsonCodec<?> jsonCodec) {
         try {
-            return (jsonCodec != null ? jsonCodec : JsonCodec.Detector.jsonCodec()).readerFor(type).read(json);
+            return (jsonCodec != null ? jsonCodec : jsonCodec()).readerFor(type).read(json);
         } catch (Exception e) {
             throw new IllegalArgumentException("Can't deserialize object ", e);
         }

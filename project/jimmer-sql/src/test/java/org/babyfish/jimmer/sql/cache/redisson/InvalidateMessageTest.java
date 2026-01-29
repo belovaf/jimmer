@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.UUID;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodecWithoutImmutableModule;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule;
 
 public class InvalidateMessageTest extends Tests {
 

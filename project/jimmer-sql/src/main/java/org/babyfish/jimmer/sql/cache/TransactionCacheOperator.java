@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.sql.*;
 import java.util.*;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodec;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodec;
 
 public class TransactionCacheOperator extends AbstractCacheOperator {
 

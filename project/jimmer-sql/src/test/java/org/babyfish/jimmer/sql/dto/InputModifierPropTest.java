@@ -7,7 +7,7 @@ import org.babyfish.jimmer.sql.model.dto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.babyfish.jimmer.jackson.codec.JsonCodec.Detector.jsonCodecWithoutImmutableModule;
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule;
 
 public class InputModifierPropTest extends Tests {
     private static final JsonReader<MixedBookInput> MIXED_BOOK_INPUT_READER =

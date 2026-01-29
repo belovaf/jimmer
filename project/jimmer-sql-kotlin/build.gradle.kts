@@ -29,7 +29,7 @@ dependencies {
 ksp {
     arg("jimmer.dto.mutable", "true")
     arg("jimmer.dto.hibernateValidatorEnhancement", "true")
-    arg("jimmer.jackson3", "true")
+//    arg("jimmer.jackson3", "true")
 }
 
 kotlin {

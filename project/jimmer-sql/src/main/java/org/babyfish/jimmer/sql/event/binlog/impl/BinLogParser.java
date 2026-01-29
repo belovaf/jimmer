@@ -23,6 +23,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import static org.babyfish.jimmer.jackson.codec.JsonCodec.jsonCodecWithoutImmutableModule;
+
 public class BinLogParser {
 
     private final Map<String, BinLogPropReader> readerMap = new HashMap<>();
@@ -44,7 +46,7 @@ public class BinLogParser {
         if (sqlClient == null) {
             throw new IllegalArgumentException("`sqlClient` cannot be null");
         }
-        JsonCodec<?> codec = jsonCodec != null ? jsonCodec : JsonCodec.Detector.jsonCodecWithoutImmutableModule();
+        JsonCodec<?> codec = jsonCodec != null ? jsonCodec : jsonCodecWithoutImmutableModule();
         this.jsonCodec = codec.withCustomizations(new BinLogModuleCustomization(this));
         this.sqlClient = sqlClient;
         Map<String, BinLogPropReader> propNameReaderMap = new HashMap<>();
