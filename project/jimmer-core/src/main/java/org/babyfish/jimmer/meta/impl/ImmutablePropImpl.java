@@ -7,7 +7,7 @@ import org.babyfish.jimmer.Formula;
 import org.babyfish.jimmer.Scalar;
 import org.babyfish.jimmer.impl.util.Classes;
 import org.babyfish.jimmer.jackson.Converter;
-import org.babyfish.jimmer.jackson.v2.JacksonUtils;
+import org.babyfish.jimmer.jackson.v2.JacksonUtilsV2;
 import org.babyfish.jimmer.jackson.JsonConverter;
 import org.babyfish.jimmer.jackson.ConverterMetadata;
 import org.babyfish.jimmer.lang.Ref;
@@ -871,7 +871,7 @@ class ImmutablePropImpl implements ImmutableProp, ImmutablePropImplementor {
                 metadata = metadata.toListMetadata();
             }
         } else {
-            JsonConverter jsonConverter = JacksonUtils.getAnnotation(this, JsonConverter.class);
+            JsonConverter jsonConverter = JacksonUtilsV2.getAnnotation(this, JsonConverter.class);
             if (jsonConverter != null) {
                 if (isAssociation(TargetLevel.OBJECT)) {
                     throw new ModelException(
@@ -884,7 +884,7 @@ class ImmutablePropImpl implements ImmutableProp, ImmutablePropImplementor {
                                     " of immutable object"
                     );
                 }
-                if (JacksonUtils.getAnnotation(this, com.fasterxml.jackson.annotation.JsonFormat.class) != null) {
+                if (JacksonUtilsV2.getAnnotation(this, com.fasterxml.jackson.annotation.JsonFormat.class) != null) {
                     throw new ModelException(
                             "Illegal property \"" +
                                     this +

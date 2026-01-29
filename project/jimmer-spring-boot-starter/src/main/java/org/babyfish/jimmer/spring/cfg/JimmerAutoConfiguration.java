@@ -1,6 +1,6 @@
 package org.babyfish.jimmer.spring.cfg;
 
-import org.babyfish.jimmer.jackson.v2.ImmutableModule;
+import org.babyfish.jimmer.jackson.v2.ImmutableModuleV2;
 import org.babyfish.jimmer.spring.repository.config.JimmerRepositoriesConfig;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -20,10 +20,10 @@ import org.springframework.context.annotation.Import;
 })
 public class JimmerAutoConfiguration {
 
-    @ConditionalOnMissingBean(ImmutableModule.class)
     @Bean
-    public ImmutableModule immutableModule() {
-        return new ImmutableModule();
+    @ConditionalOnMissingBean(ImmutableModuleV2.class)
+    public ImmutableModuleV2 immutableModuleV2() {
+        return new ImmutableModuleV2();
     }
 }
 

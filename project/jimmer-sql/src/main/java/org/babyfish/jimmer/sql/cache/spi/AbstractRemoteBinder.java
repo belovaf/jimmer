@@ -61,9 +61,9 @@ abstract class AbstractRemoteBinder<K, V> extends AbstractTrackingProducerBinder
         minMills = millis - randomPercent * millis / 100;
         maxMillis = millis + randomPercent * millis / 100;
         if (type != null) {
-            valueSerializer = new ValueSerializer<>(type, jsonCodec);
+            valueSerializer = new ValueSerializer<>(type, this.jsonCodec);
         } else {
-            valueSerializer = new ValueSerializer<>(prop, jsonCodec);
+            valueSerializer = new ValueSerializer<>(prop, this.jsonCodec);
         }
     }
 

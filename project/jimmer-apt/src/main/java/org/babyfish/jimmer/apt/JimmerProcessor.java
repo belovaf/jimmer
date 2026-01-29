@@ -71,8 +71,6 @@ public class JimmerProcessor extends AbstractProcessor {
 
     private Modifier dtoFieldModifier;
 
-    private boolean jackson3;
-
     @Override
     public SourceVersion getSupportedSourceVersion() {
         return SourceVersion.latest();
