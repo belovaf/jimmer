@@ -95,4 +95,9 @@ public class JsonCodecV3 implements JsonCodec<JavaType> {
     public JsonWriter writerFor(TypeCreator<JavaType> typeCreator) {
         return new JsonWriterV3(mapper.writerFor(typeCreator.createType(typeFactory)));
     }
+
+    @Override
+    public JacksonVersion version() {
+        return JacksonVersion.V3;
+    }
 }

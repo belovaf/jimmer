@@ -43,4 +43,6 @@ public interface JsonCodec<JT> {
     JsonWriter writerFor(Class<?> clazz);
 
     JsonWriter writerFor(TypeCreator<JT> typeCreator);
+
+    JacksonVersion version();
 }
