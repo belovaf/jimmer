@@ -5,6 +5,7 @@ import org.babyfish.jimmer.Immutable;
 import org.babyfish.jimmer.Input;
 import org.babyfish.jimmer.Specification;
 import org.babyfish.jimmer.View;
+import org.babyfish.jimmer.apt.client.DocMetadata;
 import org.babyfish.jimmer.apt.immutable.meta.ImmutableType;
 import org.babyfish.jimmer.sql.Embeddable;
 import org.babyfish.jimmer.sql.Entity;
@@ -80,6 +81,8 @@ public class Context {
     private final Modifier dtoFieldModifier;
 
     private final JacksonTypes jacksonTypes;
+
+    private final DocMetadata docMetadata;
 
     Context(
             Elements elements,
@@ -176,6 +179,7 @@ public class Context {
                     ClassName.get("com.fasterxml.jackson.databind", "SerializerProvider")
             );
         }
+        this.docMetadata = new DocMetadata(this);
     }
 
     public Class<? extends Annotation> getImmutableAnnotationType(TypeElement typeElement) {
@@ -379,5 +383,9 @@ public class Context {
 
     public JacksonTypes getJacksonTypes() {
         return this.jacksonTypes;
+    }
+
+    public DocMetadata getDocMetadata() {
+        return this.docMetadata;
     }
 }
