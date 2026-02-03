@@ -12,7 +12,6 @@ dependencies {
 
     testImplementation(libs.kotlin.test)
     kspTest(projects.jimmerKsp)
-    kspTest(libs.bundles.jackson)
 
     testImplementation(libs.bundles.jackson)
     testImplementation(libs.h2)

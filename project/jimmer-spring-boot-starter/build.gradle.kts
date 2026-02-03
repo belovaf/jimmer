@@ -16,17 +16,13 @@ dependencies {
     compileOnly(libs.spring.graphql)
     compileOnly(libs.jakartaee.api)
     compileOnly(libs.springdoc.openapi.common)
-    compileOnly(libs.jackson2.databind)
-    compileOnly(libs.jackson3.databind)
 
     annotationProcessor(libs.spring.boot.configurationProcessor)
 
     testAnnotationProcessor(projects.jimmerApt)
     testAnnotationProcessor(libs.lombok)
-    testAnnotationProcessor(libs.bundles.jackson)
 
     kspTest(projects.jimmerKsp)
-    kspTest(libs.bundles.jackson)
 
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.spring.boot.starter.web)

@@ -17,7 +17,6 @@ dependencies {
     testRuntimeOnly(libs.bundles.jackson)
 
     kspTest(projects.jimmerKsp)
-    kspTest(libs.bundles.jackson)
 }
 
 kotlin {

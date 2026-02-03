@@ -28,7 +28,6 @@ dependencies {
 
     testCompileOnly(libs.lombok)
     testAnnotationProcessor(libs.lombok)
-    testAnnotationProcessor(libs.bundles.jackson)
     testAnnotationProcessor(projects.jimmerApt)
 
     testImplementation(libs.bundles.jackson)

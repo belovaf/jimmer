@@ -46,7 +46,6 @@ testing {
             dependencies {
                 implementation(libs.jackson2.databind)
                 implementation(libs.jackson2.datatype.jsr310)
-                annotationProcessor(libs.jackson2.databind)
             }
         }
         val testJackson3 by registering(JvmTestSuite::class) {
@@ -57,7 +56,6 @@ testing {
             dependencies {
                 implementation(project())
                 implementation(libs.jackson3.databind)
-                annotationProcessor(libs.jackson3.databind)
             }
         }
         tasks.check { dependsOn(testJackson3) }
